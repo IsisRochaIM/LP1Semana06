@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace MyGame
 
         public Enemy(string name)
         {
-            this.name = name;
+            this.name = SetName(name);
             health = 100;
             shield = 0;
         }
@@ -42,6 +43,18 @@ namespace MyGame
                 shield = 0;
                 health -= damageStillToInflict;
                 if (health< 0) health = 0;
+            }
+        }
+
+        public string SetName(string newName)
+        {
+            if(newName.Length > 8 )
+            {
+                return name.Substring(8);
+            }
+            else
+            {
+                return name;
             }
         }
     }
