@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
 
 namespace MyGame
@@ -23,6 +24,15 @@ namespace MyGame
             return name;
         }
 
+        public float GetHealth()
+        {
+            return health;
+        }
+
+         public float GetShield()
+        {
+            return shield;
+        }
         public void TakeDamage(float damage)
         {
             shield -= damage;
