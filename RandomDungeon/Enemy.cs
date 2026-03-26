@@ -63,5 +63,10 @@ namespace RandomDungeon
         {
             return $"{name} ({health}, {attack})";
         }
+
+        public static Random GenerateRandomEnemy(int seed)
+        {
+            name = DefaultNames[seed.Next(DefaultNames.Length)];
+        }
     }
 }

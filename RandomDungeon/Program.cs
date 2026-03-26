@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 
 namespace RandomDungeon
 {
     public class Program
     {
         // Argumentos
+        
         // args[0]: Seed para Simulação de Batalhas
         // args[1]: Seed para Criação de Inimigos (Opcional)
         private static void Main(string[] args)
         {
+
             Arena arena = new Arena(new List<Enemy>());
             Random random = new Random(int.Parse(args[0]));
 
@@ -36,9 +39,10 @@ namespace RandomDungeon
 
             // Mostra a Lista de Inimigos Atualmente na Arena
             // CÓDIGO AQUI
+            arena.ShowEnemies();
             
             // Repetir Batalha (Enquanto Existe Mais do que 1 Inimigo)
-            while (// CÓDIGO AQUI)
+            while ( arena > 1)
             {
                 // Obter a Lista Atual de Inimigos
                 List<Enemy> enemies = arena.GetEnemies();
@@ -48,7 +52,7 @@ namespace RandomDungeon
 
                 // Selecionar Aleatoriamente um Defensor
                 // Garantindo que Não Seja o Mesmo que o Atacante
-                int defenderIndex;
+                int defenderIndex = random.Next(enemies.Count);
                 // CÓDIGO AQUI
                 
                 // Obter os Objetos Atacante e Defensor
