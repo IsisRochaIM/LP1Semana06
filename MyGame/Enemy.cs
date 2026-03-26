@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
@@ -13,6 +14,12 @@ namespace MyGame
         private float health;
         private float shield;
 
+        private static int powerUpCount;
+
+        static Enemy()
+        {
+            powerUpCount = 0;
+        }
         public Enemy(string name)
         {
             SetName(name);
@@ -72,6 +79,12 @@ namespace MyGame
                     shield = 100;
                 }
             }
+            powerUpCount ++;
+        }
+
+        public static int getPowerUpNumber()
+        {
+            return powerUpCount;
         }
     }
 }
